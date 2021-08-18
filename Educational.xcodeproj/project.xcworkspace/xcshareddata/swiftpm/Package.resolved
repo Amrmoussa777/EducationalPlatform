@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "AMCodeBase",
+        "repositoryURL": "https://github.com/Amrmoussa777/AMCodeBase.git",
+        "state": {
+          "branch": "main",
+          "revision": "e4b57091e8ecc5eb93c667ccae916ac665175570",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
