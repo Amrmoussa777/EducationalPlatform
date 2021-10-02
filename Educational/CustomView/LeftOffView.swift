@@ -7,13 +7,14 @@
 
 import UIKit
 import AMCodeBase
-
+#warning("add to AM package")
 class LeftOffView: UIView {
     
     let imageView = AMAvatarImage(frame: .zero ,tintColor: .green)
     let label    = AMItemLable(textAlignment: .left, NoOfLines: 0, size: 20)
     let playButton = AMPLayButton(text: "", bGColor: .systemGreen, iconImage: EDImages.playImage)
     
+    var NextplayLesson:lesson?
     
     
     
@@ -54,12 +55,20 @@ class LeftOffView: UIView {
         
         translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
-        
+        playButton.addTarget(self, action: #selector(playButtonTapped), for: .touchUpInside)
     }
     
+    @objc func playButtonTapped(){
+        guard let lesson = NextplayLesson else {
+            return
+        }
+        let detaledView = DetaieldLessonVC()
+        detaledView.lesson = lesson
+        detaledView.modalPresentationStyle = .fullScreen
+        EDNetworkManager.shared.currentRootVC?.present(detaledView, animated: true)
+    }
     
-    #warning("add to AM package")
-    private func setGradient(){
+    open func setGradient(){
                 
         let width = self.bounds.width
         let height = self.bounds.height
@@ -73,12 +82,14 @@ class LeftOffView: UIView {
       
     }
     // set with url
-    func setData(){
-        imageView.image = EDImages.thumbnail2
-        label.text = "Where you left OFF"
-        
+    open func setData(lesson:lesson){
+        let lastLesson = EDNetworkManager.shared.getLatsVideo()
+        NextplayLesson = lastLesson ?? lesson
+        let FirstVideoID = EDNetworkManager.shared.getVideoIDFromLesson(lesson:lastLesson ?? lesson)
+        let thumbnailLink = "https://img.youtube.com/vi/\(FirstVideoID)/0.jpg"
+        imageView.downloadImage(fromURL: thumbnailLink)
+        label.text = lastLesson?.name ?? lesson.name
     }
-    
     
     
 }

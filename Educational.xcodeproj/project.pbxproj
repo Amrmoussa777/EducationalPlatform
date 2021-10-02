@@ -7,8 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1FC5D0FE26CBF06E00DF56DB /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5D0FD26CBF06E00DF56DB /* Lesson.swift */; };
-		1FC5D10026CBF18400DF56DB /* CourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5D0FF26CBF18400DF56DB /* CourseCell.swift */; };
+		1F23E9F126D562AF00F2DC8F /* EDLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F23E9F026D562AF00F2DC8F /* EDLoginVC.swift */; };
+		1F23E9F326D57D2F00F2DC8F /* EDRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F23E9F226D57D2E00F2DC8F /* EDRegisterVC.swift */; };
+		1F5321BA27046013005417AE /* MoreCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5321B927046013005417AE /* MoreCVCell.swift */; };
+		1F5321BC27046202005417AE /* moreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5321BB27046202005417AE /* moreItem.swift */; };
+		1F5321BE27047BFA005417AE /* EditProfielVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5321BD27047BFA005417AE /* EditProfielVC.swift */; };
+		1F5321C12705C9F9005417AE /* EDTextFEild.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5321C02705C9F9005417AE /* EDTextFEild.swift */; };
+		1F5321C42705E3C2005417AE /* EDHeadLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5321C32705E3C2005417AE /* EDHeadLabel.swift */; };
+		1F5E412526D6744E0029D6A1 /* NotifacationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5E412426D6744E0029D6A1 /* NotifacationsVC.swift */; };
+		1F5E412726D675450029D6A1 /* notificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5E412626D675450029D6A1 /* notificationCell.swift */; };
+		1F5E412926D675FF0029D6A1 /* notifcation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5E412826D675FF0029D6A1 /* notifcation.swift */; };
+		1F5E412B26D6E9C50029D6A1 /* unitLessonsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5E412A26D6E9C50029D6A1 /* unitLessonsVC.swift */; };
+		1F5E412D26D6E9FE0029D6A1 /* LessonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5E412C26D6E9FE0029D6A1 /* LessonCell.swift */; };
+		1F66335B26D177F200536045 /* CGRect+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F66335A26D177F200536045 /* CGRect+Ext.swift */; };
+		1F76E87B26D282DF0042F773 /* ExamRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F76E87A26D282DF0042F773 /* ExamRoom.swift */; };
+		1F956E0B26D424A600BB13B4 /* MoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F956E0A26D424A600BB13B4 /* MoreVC.swift */; };
+		1F956E0E26D544DF00BB13B4 /* EDNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F956E0D26D544DF00BB13B4 /* EDNetworkManager.swift */; };
+		1F956E1126D5518200BB13B4 /* UIViewController+EXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F956E1026D5518200BB13B4 /* UIViewController+EXT.swift */; };
+		1FC47F0C26D022C600FBC92E /* ExamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC47F0B26D022C600FBC92E /* ExamCell.swift */; };
+		1FC47F0F26D026AF00FBC92E /* Exam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC47F0E26D026AF00FBC92E /* Exam.swift */; };
+		1FC5D0FE26CBF06E00DF56DB /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5D0FD26CBF06E00DF56DB /* Unit.swift */; };
+		1FC5D10026CBF18400DF56DB /* unitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5D0FF26CBF18400DF56DB /* unitCell.swift */; };
 		1FC5D10326CC009C00DF56DB /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5D10226CC009C00DF56DB /* MockData.swift */; };
 		1FC5D10626CC0E8700DF56DB /* DetaieldLessonVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC5D10526CC0E8700DF56DB /* DetaieldLessonVC.swift */; };
 		1FC999E226CAFED200D35B6A /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC999E126CAFED200D35B6A /* HomeVC.swift */; };
@@ -23,7 +42,6 @@
 		1FCF4BCA26CA7E0000B8A043 /* EducationalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCF4BC926CA7E0000B8A043 /* EducationalTests.swift */; };
 		1FCF4BD526CA7E0000B8A043 /* EducationalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCF4BD426CA7E0000B8A043 /* EducationalUITests.swift */; };
 		1FFF6FF326CAF14F006CAD10 /* AMCodeBase in Frameworks */ = {isa = PBXBuildFile; productRef = 1FFF6FF226CAF14F006CAD10 /* AMCodeBase */; };
-		1FFF6FF526CAF18D006CAD10 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF6FF426CAF18D006CAD10 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,8 +62,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1FC5D0FD26CBF06E00DF56DB /* Lesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
-		1FC5D0FF26CBF18400DF56DB /* CourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCell.swift; sourceTree = "<group>"; };
+		1F23E9F026D562AF00F2DC8F /* EDLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EDLoginVC.swift; sourceTree = "<group>"; };
+		1F23E9F226D57D2E00F2DC8F /* EDRegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EDRegisterVC.swift; sourceTree = "<group>"; };
+		1F5321B927046013005417AE /* MoreCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreCVCell.swift; sourceTree = "<group>"; };
+		1F5321BB27046202005417AE /* moreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moreItem.swift; sourceTree = "<group>"; };
+		1F5321BD27047BFA005417AE /* EditProfielVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfielVC.swift; sourceTree = "<group>"; };
+		1F5321C02705C9F9005417AE /* EDTextFEild.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EDTextFEild.swift; sourceTree = "<group>"; };
+		1F5321C32705E3C2005417AE /* EDHeadLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EDHeadLabel.swift; sourceTree = "<group>"; };
+		1F5E412426D6744E0029D6A1 /* NotifacationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifacationsVC.swift; sourceTree = "<group>"; };
+		1F5E412626D675450029D6A1 /* notificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notificationCell.swift; sourceTree = "<group>"; };
+		1F5E412826D675FF0029D6A1 /* notifcation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notifcation.swift; sourceTree = "<group>"; };
+		1F5E412A26D6E9C50029D6A1 /* unitLessonsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitLessonsVC.swift; sourceTree = "<group>"; };
+		1F5E412C26D6E9FE0029D6A1 /* LessonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonCell.swift; sourceTree = "<group>"; };
+		1F66335A26D177F200536045 /* CGRect+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Ext.swift"; sourceTree = "<group>"; };
+		1F76E87A26D282DF0042F773 /* ExamRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamRoom.swift; sourceTree = "<group>"; };
+		1F956E0A26D424A600BB13B4 /* MoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreVC.swift; sourceTree = "<group>"; };
+		1F956E0D26D544DF00BB13B4 /* EDNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EDNetworkManager.swift; sourceTree = "<group>"; };
+		1F956E1026D5518200BB13B4 /* UIViewController+EXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+EXT.swift"; sourceTree = "<group>"; };
+		1FC47F0B26D022C600FBC92E /* ExamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamCell.swift; sourceTree = "<group>"; };
+		1FC47F0E26D026AF00FBC92E /* Exam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exam.swift; sourceTree = "<group>"; };
+		1FC5D0FD26CBF06E00DF56DB /* Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
+		1FC5D0FF26CBF18400DF56DB /* unitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitCell.swift; sourceTree = "<group>"; };
 		1FC5D10226CC009C00DF56DB /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		1FC5D10526CC0E8700DF56DB /* DetaieldLessonVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetaieldLessonVC.swift; sourceTree = "<group>"; };
 		1FC999E126CAFED200D35B6A /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -65,7 +102,6 @@
 		1FCF4BD026CA7E0000B8A043 /* EducationalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EducationalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FCF4BD426CA7E0000B8A043 /* EducationalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationalUITests.swift; sourceTree = "<group>"; };
 		1FCF4BD626CA7E0000B8A043 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1FFF6FF426CAF18D006CAD10 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,10 +130,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F5321BF2705C9E7005417AE /* TextFeilds */ = {
+			isa = PBXGroup;
+			children = (
+				1F5321C02705C9F9005417AE /* EDTextFEild.swift */,
+			);
+			path = TextFeilds;
+			sourceTree = "<group>";
+		};
+		1F5321C22705E3AE005417AE /* labels */ = {
+			isa = PBXGroup;
+			children = (
+				1F5321C32705E3C2005417AE /* EDHeadLabel.swift */,
+			);
+			path = labels;
+			sourceTree = "<group>";
+		};
+		1F66335926D177D300536045 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1F66335A26D177F200536045 /* CGRect+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1F956E0C26D544CC00BB13B4 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				1F956E0D26D544DF00BB13B4 /* EDNetworkManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		1F956E0F26D5515700BB13B4 /* EDExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				1F956E1026D5518200BB13B4 /* UIViewController+EXT.swift */,
+			);
+			path = EDExtensions;
+			sourceTree = "<group>";
+		};
+		1FC47F1026D0338900FBC92E /* UIViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UIViews;
+			sourceTree = "<group>";
+		};
 		1FC5D0FB26CBEF7E00DF56DB /* cells */ = {
 			isa = PBXGroup;
 			children = (
-				1FC5D0FF26CBF18400DF56DB /* CourseCell.swift */,
+				1FC5D0FF26CBF18400DF56DB /* unitCell.swift */,
+				1FC47F0B26D022C600FBC92E /* ExamCell.swift */,
+				1F5E412626D675450029D6A1 /* notificationCell.swift */,
+				1F5E412C26D6E9FE0029D6A1 /* LessonCell.swift */,
+				1F5321B927046013005417AE /* MoreCVCell.swift */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -105,7 +192,10 @@
 		1FC5D0FC26CBF05900DF56DB /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1FC5D0FD26CBF06E00DF56DB /* Lesson.swift */,
+				1FC5D0FD26CBF06E00DF56DB /* Unit.swift */,
+				1FC47F0E26D026AF00FBC92E /* Exam.swift */,
+				1F5E412826D675FF0029D6A1 /* notifcation.swift */,
+				1F5321BB27046202005417AE /* moreItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -124,6 +214,13 @@
 				1FC999E326CB02A400D35B6A /* ExamsVC.swift */,
 				1FC999E126CAFED200D35B6A /* HomeVC.swift */,
 				1FC5D10526CC0E8700DF56DB /* DetaieldLessonVC.swift */,
+				1F76E87A26D282DF0042F773 /* ExamRoom.swift */,
+				1F956E0A26D424A600BB13B4 /* MoreVC.swift */,
+				1F23E9F026D562AF00F2DC8F /* EDLoginVC.swift */,
+				1F23E9F226D57D2E00F2DC8F /* EDRegisterVC.swift */,
+				1F5E412426D6744E0029D6A1 /* NotifacationsVC.swift */,
+				1F5E412A26D6E9C50029D6A1 /* unitLessonsVC.swift */,
+				1F5321BD27047BFA005417AE /* EditProfielVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -131,6 +228,9 @@
 		1FC999E926CB4C4500D35B6A /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				1F5321C22705E3AE005417AE /* labels */,
+				1F5321BF2705C9E7005417AE /* TextFeilds */,
+				1FC47F1026D0338900FBC92E /* UIViews */,
 				1FC5D10426CC0E4A00DF56DB /* ViewControllers */,
 				1FC5D0FB26CBEF7E00DF56DB /* cells */,
 				1FC999EA26CB4C6D00D35B6A /* LeftOffView.swift */,
@@ -161,6 +261,9 @@
 		1FCF4BB126CA7DFA00B8A043 /* Educational */ = {
 			isa = PBXGroup;
 			children = (
+				1F956E0F26D5515700BB13B4 /* EDExtensions */,
+				1F956E0C26D544CC00BB13B4 /* Managers */,
+				1F66335926D177D300536045 /* Extensions */,
 				1FC5D10126CC008D00DF56DB /* Mock Data */,
 				1FC5D0FC26CBF05900DF56DB /* Model */,
 				1FC999E926CB4C4500D35B6A /* CustomView */,
@@ -170,7 +273,6 @@
 				1FCF4BBB26CA7DFF00B8A043 /* Assets.xcassets */,
 				1FCF4BBD26CA7DFF00B8A043 /* LaunchScreen.storyboard */,
 				1FCF4BC026CA7DFF00B8A043 /* Info.plist */,
-				1FFF6FF426CAF18D006CAD10 /* NetworkManager.swift */,
 				1FC999E526CB09BF00D35B6A /* Constant.swift */,
 			);
 			path = Educational;
@@ -329,18 +431,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FC5D0FE26CBF06E00DF56DB /* Lesson.swift in Sources */,
+				1F5E412726D675450029D6A1 /* notificationCell.swift in Sources */,
+				1FC47F0F26D026AF00FBC92E /* Exam.swift in Sources */,
+				1FC5D0FE26CBF06E00DF56DB /* Unit.swift in Sources */,
+				1F5321BA27046013005417AE /* MoreCVCell.swift in Sources */,
+				1F5321C12705C9F9005417AE /* EDTextFEild.swift in Sources */,
+				1F5321BC27046202005417AE /* moreItem.swift in Sources */,
+				1F5E412526D6744E0029D6A1 /* NotifacationsVC.swift in Sources */,
+				1FC47F0C26D022C600FBC92E /* ExamCell.swift in Sources */,
+				1F956E0E26D544DF00BB13B4 /* EDNetworkManager.swift in Sources */,
+				1F5E412B26D6E9C50029D6A1 /* unitLessonsVC.swift in Sources */,
 				1FC999E626CB09C000D35B6A /* Constant.swift in Sources */,
-				1FFF6FF526CAF18D006CAD10 /* NetworkManager.swift in Sources */,
 				1FC999E426CB02A400D35B6A /* ExamsVC.swift in Sources */,
-				1FC5D10026CBF18400DF56DB /* CourseCell.swift in Sources */,
+				1F956E1126D5518200BB13B4 /* UIViewController+EXT.swift in Sources */,
+				1FC5D10026CBF18400DF56DB /* unitCell.swift in Sources */,
 				1FC999E226CAFED200D35B6A /* HomeVC.swift in Sources */,
 				1FCF4BB726CA7DFA00B8A043 /* ViewController.swift in Sources */,
+				1F5E412D26D6E9FE0029D6A1 /* LessonCell.swift in Sources */,
 				1FCF4BB326CA7DFA00B8A043 /* AppDelegate.swift in Sources */,
+				1F23E9F126D562AF00F2DC8F /* EDLoginVC.swift in Sources */,
 				1FC999EB26CB4C6E00D35B6A /* LeftOffView.swift in Sources */,
 				1FC5D10326CC009C00DF56DB /* MockData.swift in Sources */,
 				1FC5D10626CC0E8700DF56DB /* DetaieldLessonVC.swift in Sources */,
+				1F5E412926D675FF0029D6A1 /* notifcation.swift in Sources */,
+				1F5321C42705E3C2005417AE /* EDHeadLabel.swift in Sources */,
+				1F5321BE27047BFA005417AE /* EditProfielVC.swift in Sources */,
+				1F956E0B26D424A600BB13B4 /* MoreVC.swift in Sources */,
+				1F23E9F326D57D2F00F2DC8F /* EDRegisterVC.swift in Sources */,
+				1F76E87B26D282DF0042F773 /* ExamRoom.swift in Sources */,
 				1FCF4BB526CA7DFA00B8A043 /* SceneDelegate.swift in Sources */,
+				1F66335B26D177F200536045 /* CGRect+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,6 +629,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = GWXAFB6JRH;
 				INFOPLIST_FILE = Educational/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -529,6 +650,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = GWXAFB6JRH;
 				INFOPLIST_FILE = Educational/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

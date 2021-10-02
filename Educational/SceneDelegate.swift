@@ -19,6 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
         window.rootViewController = createTabView()
+        window.overrideUserInterfaceStyle = .light
         window.makeKeyAndVisible()
         self.window = window
         
@@ -55,42 +56,63 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private func createTabView() -> UITabBarController{
         let tabBar = UITabBarController()
         UITabBar.appearance().tintColor = .systemGreen
-        tabBar.viewControllers = [createHomeVC(),createExamsVC()]
+        tabBar.viewControllers = [createHomeVC(),createExamsVC(),createMoreVC()]
+        tabBar.tabBar.semanticContentAttribute = .forceRightToLeft
         configureNavigationBar()
         
         return tabBar
         
     }
-    private func createHomeVC()->UINavigationController{
-        let homeVC = HomeVC()
-        homeVC.title = "كورساتي"
-        homeVC.tabBarItem = .init(title: "دروس", image: TabbarImages.homeTabbarItemImage, tag: 0)
-        let homeNC = UINavigationController(rootViewController: homeVC)
-        homeNC.navigationBar.isTranslucent = true
-        homeNC.navigationBar.prefersLargeTitles = true
-        Configurebarbutton(in: homeVC)
-        return homeNC
+    
+    private func createMoreVC()->UINavigationController{
+        let profile = MoreVC()
+        profile.title = EDStrings.more
+        profile.tabBarItem = .init(title:EDStrings.more, image: EDImages.moreIcon, tag: 0)
+        
+        let profileNC = UINavigationController(rootViewController: profile)
+        profileNC.navigationBar.isTranslucent = true
+        profileNC.navigationBar.prefersLargeTitles = true
+        return profileNC
+        
     }
     
     private func createExamsVC()->UINavigationController{
         let examVC = ExamsVC()
-        examVC.title = "امتحانات"
-        examVC.tabBarItem = .init(title: "امتحانات", image: Images.swriteImage, tag: 1)
+        examVC.title = EDStrings.exams
+        examVC.tabBarItem = .init(title: EDStrings.exams, image: EDImages.testIcon, tag: 1)
         
         let examNC = UINavigationController(rootViewController: examVC)
         examNC.navigationBar.isTranslucent = true
         examNC.navigationBar.prefersLargeTitles = true
         return examNC
     }
+   
+    
+    private func createHomeVC()->UINavigationController{
+        let homeVC = HomeVC()
+        homeVC.title = EDStrings.mainScreen
+        homeVC.tabBarItem = .init(title: EDStrings.mainScreen, image: TabbarImages.homeTabbarItemImage, tag: 2)
+        let homeNC = UINavigationController(rootViewController: homeVC)
+        homeNC.navigationBar.isTranslucent = true
+        homeNC.navigationBar.prefersLargeTitles = true
+        
+        Configurebarbutton(in: homeVC)
+        return homeNC
+    }
+    
+
     
     fileprivate func configureNavigationBar() {
         if #available(iOS 13.0, *){
             let navBarAppearance = UINavigationBarAppearance()
             navBarAppearance.configureWithOpaqueBackground()
             navBarAppearance.backgroundColor = .systemBackground
-            navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.systemGreen]
-            navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.systemGreen]
-            UIBarButtonItem.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).tintColor = .systemGreen
+           
+            let paragraph = NSMutableParagraphStyle()
+            paragraph.alignment = .right
+            navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.label,.paragraphStyle:paragraph]
+            navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.label,.paragraphStyle:paragraph]
+            UIBarButtonItem.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).tintColor = .label
             UINavigationBar.appearance(whenContainedInInstancesOf: [UINavigationController.self]).standardAppearance = navBarAppearance
             UINavigationBar.appearance(whenContainedInInstancesOf: [UINavigationController.self]).scrollEdgeAppearance = navBarAppearance
             
@@ -106,27 +128,27 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         imgView.isUserInteractionEnabled = true
         imgView.addGestureRecognizer(tap)
             
-        let notificationButton = UIButton()
-        notificationButton.tintColor = UIColor.systemGreen
-        notificationButton.backgroundColor = .clear
-        notificationButton.setImage(TabbarItemImage.notificationImage, for: .normal)
-        notificationButton.contentVerticalAlignment = .fill
-        notificationButton.contentHorizontalAlignment = .fill
-        notificationButton.addTarget(viewContoller, action: #selector(viewContoller.notficationTapped), for: .touchUpInside)
+//        let notificationButton = UIButton()
+//        notificationButton.tintColor = UIColor.systemGreen
+//        notificationButton.backgroundColor = .clear
+//        notificationButton.setImage(TabbarItemImage.notificationImage, for: .normal)
+//        notificationButton.contentVerticalAlignment = .fill
+//        notificationButton.contentHorizontalAlignment = .fill
+//        notificationButton.addTarget(viewContoller, action: #selector(viewContoller.notficationTapped), for: .touchUpInside)
+//
         
-        
-        let imageSize:CGFloat = 25
-        guard let navigationBar = viewContoller.navigationController?.navigationBar else {return }
-        navigationBar.addSubview(notificationButton)
-        notificationButton.layer.cornerRadius = imageSize / 2
-        notificationButton.clipsToBounds = true
-        notificationButton.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint.activate([
-                notificationButton.rightAnchor.constraint(equalTo: navigationBar.rightAnchor, constant: -10),
-                notificationButton.bottomAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: -10),
-                notificationButton.heightAnchor.constraint(equalToConstant: imageSize),
-                notificationButton.widthAnchor.constraint(equalTo: notificationButton.heightAnchor)
-                ])
+//        let imageSize:CGFloat = 25
+//        guard let navigationBar = viewContoller.navigationController?.navigationBar else {return }
+//        navigationBar.addSubview(notificationButton)
+//        notificationButton.layer.cornerRadius = imageSize / 2
+//        notificationButton.clipsToBounds = true
+//        notificationButton.translatesAutoresizingMaskIntoConstraints = false
+//            NSLayoutConstraint.activate([
+//                notificationButton.rightAnchor.constraint(equalTo: navigationBar.rightAnchor, constant: -10),
+//                notificationButton.bottomAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: -10),
+//                notificationButton.heightAnchor.constraint(equalToConstant: imageSize),
+//                notificationButton.widthAnchor.constraint(equalTo: notificationButton.heightAnchor)
+//                ])
        }
     
     

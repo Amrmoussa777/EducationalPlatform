@@ -8,164 +8,127 @@
 import UIKit
 import AMCodeBase
 
-class HomeVC: UIViewController{
+
+class HomeVC: AMCollectionViewController<unitCell, Unit>{
     
-    var homeScrollView:AMScrollView!
- 
-    let leftOffView = LeftOffView()
+
+    let headlineLabel = AMItemLable(textAlignment: .right, NoOfLines: 1, size: 20)
     
-    let headlineLabel = AMItemLable(textAlignment: .left, NoOfLines: 1, size: 20)
+
     
-    var coursesCollectionView:UICollectionView!
-    let layout = UICollectionViewFlowLayout()
-    
-    var lessons:[Lesson] = []
+    var emptyState:UIView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        view.backgroundColor = .systemBackground
-        configureScrollView()
-        configureCourseCV()
+        EDNetworkManager.shared.currentRootVC = self
         configureLayout()
         configureHeadline()
         loadLessons()
+        rightAlignedLargeTitle()
     }
     
-    private func configureScrollView(){
-        let heiht = view.frame.size.height - additionalSafeAreaInsets.bottom
-        let width:CGFloat = 0
-        let size = CGSize(width: view.frame.width, height: heiht + width)
-        homeScrollView = AMScrollView(contentViewSize :size)
-        view.addSubview(homeScrollView)
-        homeScrollView.pinToSuperViewSafeArea(in: view)
-        homeScrollView.backgroundColor = .systemBackground
-        homeScrollView.showsVerticalScrollIndicator = false
-    }
-    
-    
-    private func configureCourseCV(){
-        coursesCollectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
-        coursesCollectionView.register(CourseCell.self, forCellWithReuseIdentifier: CourseCell.cellID)
-        coursesCollectionView.delegate = self
-        coursesCollectionView.dataSource = self
-        coursesCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        coursesCollectionView.backgroundColor = .systemBackground
-//        homeScrollView.bringSubviewToFront(coursesCollectionView)
-        #warning("added to scence delegate")
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        EDNetworkManager.shared.currentRootVC = self
+    }
+    override func chanegCellSize() {
+        self.cellSize = .init(width: AMCollectionView.bounds.width, height: 100)
+    }
+    
+    
     
     private func configureLayout(){
-        let contentView = homeScrollView.contentView
-        homeScrollView.contentView.addSubViews(leftOffView,headlineLabel,coursesCollectionView)
-        
         let padding:CGFloat = 10
+        view.addSubViews(/* leftOffView ,*/ headlineLabel,AMCollectionView)
+        let safeArea = view.safeAreaLayoutGuide
+        
         NSLayoutConstraint.activate([
-            leftOffView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
-            leftOffView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
-            leftOffView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
-            leftOffView.heightAnchor.constraint(equalTo: leftOffView.widthAnchor, multiplier: 0.7),
-            
-            headlineLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
-            headlineLabel.topAnchor.constraint(equalTo: leftOffView.bottomAnchor, constant: padding),
-            headlineLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
+          
+           
+            headlineLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: padding),
+            headlineLabel.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: padding),
+            headlineLabel.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -padding),
             headlineLabel.heightAnchor.constraint(equalToConstant: 30),
             
-            coursesCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
-            coursesCollectionView.topAnchor.constraint(equalTo: headlineLabel.bottomAnchor, constant: padding),
-            coursesCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
-            coursesCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -padding),
+            AMCollectionView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: padding),
+            AMCollectionView.topAnchor.constraint(equalTo: headlineLabel.bottomAnchor, constant: padding),
+            AMCollectionView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -padding),
+            AMCollectionView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -padding),
+            
         ])
-       
+        
+        
     }
+    
+    
     private func configureHeadline(){
         headlineLabel.configureAsProfileHeadline()
         headlineLabel.textColor = .systemGreen
-    }
-    private func loadLessons(){
-        let loadingView = view.showLoadingView()
-        leftOffView.setData()
-        headlineLabel.text = "الدروس"
-        lessons.append(contentsOf: MockData.lessons)
-        lessons.append(contentsOf: MockData.lessons)
-        loadingView.removeFromSuperview()
-        coursesCollectionView.reloadData()
-    }
+        let tap = UITapGestureRecognizer(target: self, action: #selector(titleImageTapped))
+        tap.cancelsTouchesInView = false
+        headlineLabel.addGestureRecognizer(tap)
 
+    }
+     func loadLessons(){
+        let loadingView = view.showLoadingView()
+        
+        headlineLabel.text = EDStrings.units
+        EDNetworkManager.shared.getUnits {[weak self] units in
+            guard let self = self else {return}
+            DispatchQueue.main.async {
+                self.emptyState?.removeFromSuperview()
+
+                loadingView.removeFromSuperview()
+                units.isEmpty ? self.showemptyState(): self.UpadateItem(items: units)
+            }
+        }
+        
+    }
     
+    private func showemptyState(){
+        emptyState =  view.showEmptyState(img: EDImages.largeLogo!, message: EDStrings.noLessonsAvailable)
+    }
     
     @objc func notficationTapped(){print("newww")}
     
     @objc func titleImageTapped(){
-        coursesCollectionView.scrollToTop()
-        homeScrollView.scrollToTop()
+        AMCollectionView.scrollToTop()
+
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let unit = items[indexPath.row]
+        let lessonVC = unitLessonsVC()
+        lessonVC.items = unit.lessons
+        
+        
+        navigationController?.pushViewController(lessonVC, animated: true)
+         
+    }
+    
+   
+    
+    override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    }
+    
     
 }
 
 
-extension HomeVC :UICollectionViewDelegate, UICollectionViewDataSource ,UICollectionViewDelegateFlowLayout{
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return lessons.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = coursesCollectionView.dequeueReusableCell(withReuseIdentifier: CourseCell.cellID, for: indexPath) as! CourseCell
-        cell.addCourse(course: lessons[indexPath.row])
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let lesson = lessons[indexPath.row]
-        let detailedView = DetaieldLessonVC()
-        detailedView.lesson = lesson
+extension HomeVC {
 
-        navigationController?.pushViewController(detailedView, animated: true)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = coursesCollectionView.frame.size
-        return CGSize(width: size.width, height: 150)
-    }
-    
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        
-        let offsetY = scrollView.contentOffset.y
-        let inset  = scrollView.contentInset.bottom
-        let contentHeight = scrollView.contentSize.height
-        let height = scrollView.frame.size.height
-//        print(offsetY, inset, contentHeight, height)
-        
-        if offsetY > contentHeight - height + inset {
-            lessons.append(contentsOf:MockData.lessons)
-            coursesCollectionView.reloadData()
-            coursesCollectionView.insertItems(at: [])
+    private func animateLayoutChange(with duration:Double){
+        UIView.animate(withDuration: duration) {
+            self.view.layoutIfNeeded()
         }
-        
-        offsetY > 0 ? scrollToBottom():scrollToTop()
     }
     
-    private func scrollToTop(){
-        homeScrollView.scrollToTop()
-    }
     
-    private func scrollToBottom(){
-        homeScrollView.scrollToBottom()
-    }
+    
     
 }
-
-
-
-
